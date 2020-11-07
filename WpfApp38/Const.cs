@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace WpfApp38
+{
+    public class Const
+    {
+        public const string SourceFileName = "SourceFileName.txt";
+        public const string TargetFileName = "TargetFileName.txt";
+        public const string FileFolder = "C:\\Users\\vgds7\\source\\repos\\WpfApp38\\WpfApp38\\Repo\\";
+    }
+}

@@ -58,6 +58,8 @@ namespace WpfApp38
                     Value = "2.3.0.1"
                 }
             };
+            Parametras.WriteParametersToFile(sourceParameters, Const.SourceFileName);
+            Parametras.WriteParametersToFile(targetParameters, Const.TargetFileName);
         }
     }
 }

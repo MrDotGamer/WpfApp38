@@ -1,0 +1,1 @@
+1:Text2;2:1;Text2:Parametras;130:2.3.0.1;
