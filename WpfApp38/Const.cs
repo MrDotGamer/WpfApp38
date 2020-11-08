@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WpfApp38
+﻿namespace WpfApp38
 {
     public class Const
     {
