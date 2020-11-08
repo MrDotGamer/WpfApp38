@@ -93,6 +93,7 @@ namespace WpfApp38
             if (SourceParametersList != null && TargetParametersList != null)
             {
                 DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
+                ResultLbl.Content = ParametersViewModel.TotalStatusResult(SourceParametersList, TargetParametersList);
             }
         }
 
@@ -111,6 +112,7 @@ namespace WpfApp38
             if (SourceParametersList != null && TargetParametersList != null)
             {
                 DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
+                ResultLbl.Content = ParametersViewModel.TotalStatusResult(SourceParametersList, TargetParametersList);
             }
         }
 

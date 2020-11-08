@@ -51,5 +51,12 @@ namespace WpfApp38.ViewModel
                             select new ParametersViewModel { SourceId = s.Id, SourceValue = s.Value, TargetId = t.Id, TargetValue = t.Value, Status = Const.Unchanged };
             return unchanged.ToList();
         }
+        public static string TotalStatusResult(List<Parametras> SourceParametersList, List<Parametras> TargetParametersList)
+        {
+            return $"unchanged({UnchangedResultList(SourceParametersList, TargetParametersList).Count})" +
+                        $" modified({ModifiedResultList(SourceParametersList, TargetParametersList).Count}) " +
+                        $" removed({RemovedResultList(SourceParametersList, TargetParametersList).Count})" +
+                        $" added({AddedResultList(SourceParametersList, TargetParametersList).Count})";
+        }
     }
 }
