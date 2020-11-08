@@ -9,5 +9,7 @@ namespace WpfApp38
         public const string SourceFileName = "SourceFileName.txt";
         public const string TargetFileName = "TargetFileName.txt";
         public const string FileFolder = "C:\\Users\\vgds7\\source\\repos\\WpfApp38\\WpfApp38\\Repo\\";
+        public const string DafaultExtention = "*.txt";
+        public const string DefaultFilter = "Text Document (.txt | *.txt";
     }
 }

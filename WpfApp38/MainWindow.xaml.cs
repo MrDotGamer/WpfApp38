@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using WpfApp38.Models;
 
 namespace WpfApp38
@@ -12,6 +15,7 @@ namespace WpfApp38
     {
         public MainWindow()
         {
+            
             InitializeComponent();
             List<Parametras> sourceParameters = new List<Parametras> {
                 new Parametras
@@ -60,6 +64,44 @@ namespace WpfApp38
             };
             Parametras.WriteParametersToFile(sourceParameters, Const.SourceFileName);
             Parametras.WriteParametersToFile(targetParameters, Const.TargetFileName);
+        }
+
+        private void SourceButton_Click(object sender, RoutedEventArgs e)
+        {
+            var s = (Button)sender;
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                DefaultExt = Const.DafaultExtention,
+                Filter = Const.DefaultFilter
+            };
+            if (openFileDialog.ShowDialog() == true)
+            { 
+                        SourceLbl.Content = openFileDialog.FileName;
+                        OpenFile(openFileDialog.FileName);
+            }
+        }
+
+
+        private void TargetButton_Click(object sender, RoutedEventArgs e)
+        {
+            var s = (Button)sender;
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                DefaultExt = Const.DafaultExtention,
+                Filter = Const.DefaultFilter
+            };
+            if (openFileDialog.ShowDialog() == true)
+            {
+                TargetLbl.Content = openFileDialog.FileName;
+                OpenFile(openFileDialog.FileName);
+            }
+
+        }
+
+        private void OpenFile(string path)
+        {
+            
+
         }
     }
 }
