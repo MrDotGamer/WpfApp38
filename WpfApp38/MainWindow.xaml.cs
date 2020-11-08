@@ -129,7 +129,7 @@ namespace WpfApp38
                         e.Row.Background = new SolidColorBrush(Colors.Tomato);
                         break;
                     case Const.Modified:
-                        e.Row.Background = new SolidColorBrush(Color.FromRgb(255, 255, 94));// neradau Laser Lemon
+                        e.Row.Background = new SolidColorBrush(Color.FromRgb(255, 255, 94));
                         break;
                 }
             }
