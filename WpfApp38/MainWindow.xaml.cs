@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using WpfApp38.Models;
 using WpfApp38.ViewModel;
@@ -248,6 +249,12 @@ namespace WpfApp38
                     DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
                 }
             }
+        }
+        private void SearchById_KeyUp(object sender, KeyEventArgs e)
+        {
+            var source = SourceParametersList.Where(x => x.Id.StartsWith(SearchTextBox.Text)).ToList();
+            var target = TargetParametersList.Where(x => x.Id.StartsWith(SearchTextBox.Text)).ToList();
+            DataGrid.ItemsSource = GetList(source, target);
         }
     }
 }
