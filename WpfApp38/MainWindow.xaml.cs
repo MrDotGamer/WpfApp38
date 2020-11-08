@@ -92,6 +92,7 @@ namespace WpfApp38
             }
             if (SourceParametersList != null && TargetParametersList != null)
             {
+                TableGrid.Visibility = Visibility.Visible;
                 DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
                 ResultLbl.Content = ParametersViewModel.TotalStatusResult(SourceParametersList, TargetParametersList);
             }
@@ -111,6 +112,7 @@ namespace WpfApp38
             }
             if (SourceParametersList != null && TargetParametersList != null)
             {
+                TableGrid.Visibility = Visibility.Visible;
                 DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
                 ResultLbl.Content = ParametersViewModel.TotalStatusResult(SourceParametersList, TargetParametersList);
             }
@@ -148,7 +150,7 @@ namespace WpfApp38
                     var invockedMethodResult = (List<ParametersViewModel>)method.DynamicInvoke(sourceParametersList, targetParametersList);
                     list = list.Concat(invockedMethodResult).ToList();
                 }
-           
+
             return list;
         }
         private List<Parametras> OpenFile(string path)
@@ -175,7 +177,14 @@ namespace WpfApp38
                 }
                 else if (!(bool)checkbox.IsChecked && d.Contains(lstUnchanged))
                 {
-                    lstDelegate -= ParametersViewModel.UnchangedResultList;
+                    if (lstDelegate.GetInvocationList().Count() != 1)
+                    {
+                        lstDelegate -= ParametersViewModel.UnchangedResultList;
+                    }
+                    else
+                    {
+                        Unchanged.IsChecked = true;
+                    }
                     DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
                 }
             }
@@ -199,7 +208,14 @@ namespace WpfApp38
                 }
                 else if (!(bool)checkbox.IsChecked && d.Contains(lstModified))
                 {
-                    lstDelegate -= ParametersViewModel.ModifiedResultList;
+                    if (lstDelegate.GetInvocationList().Count() != 1)
+                    {
+                        lstDelegate -= ParametersViewModel.ModifiedResultList;
+                    }
+                    else
+                    {
+                        Modified.IsChecked = true;
+                    }
                     DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
                 }
             }
@@ -223,7 +239,14 @@ namespace WpfApp38
                 }
                 else if (!(bool)checkbox.IsChecked && d.Contains(lstAdded))
                 {
-                    lstDelegate -= ParametersViewModel.AddedResultList;
+                    if (lstDelegate.GetInvocationList().Count() != 1)
+                    {
+                        lstDelegate -= ParametersViewModel.AddedResultList;
+                    }
+                    else
+                    {
+                        Added.IsChecked = true;
+                    }
                     DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
                 }
             }
@@ -247,10 +270,21 @@ namespace WpfApp38
                 }
                 else if (!(bool)checkbox.IsChecked && d.Contains(lstRemoved))
                 {
-                    lstDelegate -= ParametersViewModel.RemovedResultList;
+                    if (lstDelegate.GetInvocationList().Count() != 1)
+                    {
+                        lstDelegate -= ParametersViewModel.RemovedResultList;
+                    }
+                    else
+                    {
+                        Removed.IsChecked = true;
+                    }
                     DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
                 }
             }
+        }
+        private void SearchTexBox_LostFocus(object sender,RoutedEventArgs e)
+        {
+            SearchTextBox.Text = "";
         }
         private void SearchById_KeyUp(object sender, KeyEventArgs e)
         {

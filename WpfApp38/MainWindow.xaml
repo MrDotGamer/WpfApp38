@@ -6,29 +6,23 @@
         xmlns:local="clr-namespace:WpfApp38"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="465" Width="878">
-    <Grid Margin="0,0,0,10" HorizontalAlignment="Left" Width="888">
+        Title="MainWindow" Height="465" Width="854">
+    <Grid Margin="0,0,0,10" HorizontalAlignment="Center" Width="878">
         <Grid HorizontalAlignment="Left" Width="780" Height="104" VerticalAlignment="Top" Margin="36,0,0,0">
             <Button Content="Source Button" Height="30" Margin="588,10,10,0" VerticalAlignment="Top" Name="SourceButton" Click="SourceButton_Click"/>
             <Button Content="Target Button" Height="30" Margin="588,60,10,0" VerticalAlignment="Top" Name="TargetButton" Click="TargetButton_Click"/>
             <Label Name="SourceLbl" Height="30" Margin="10,10,209,0" VerticalAlignment="Top"/>
             <Label Name="TargetLbl" Margin="10,60,209,11"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="273" Margin="36,119,0,0" VerticalAlignment="Top" Width="780">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160*"/>
-                <ColumnDefinition Width="95*"/>
-                <ColumnDefinition Width="84*"/>
-                <ColumnDefinition Width="441*"/>
-            </Grid.ColumnDefinitions>
+        <Grid Visibility="Hidden" Name="TableGrid"  HorizontalAlignment="Left" Height="273" Margin="36,119,0,0" VerticalAlignment="Top" Width="780">
             <DataGrid LoadingRow="DataGrid_LoadingRow" Name="DataGrid" HorizontalAlignment="Left" Height="172" Margin="10,96,0,0" VerticalAlignment="Top" Width="760" Grid.ColumnSpan="4"/>
             <CheckBox IsChecked="True" Name="Unchanged" Content="Unchanged" HorizontalAlignment="Left" Height="33" Margin="15,58,0,0" VerticalAlignment="Top" Width="180" Checked="Unchanged_Checked" Unchecked="Unchanged_Checked" Grid.ColumnSpan="2"/>
-            <CheckBox IsChecked="True" Name="Modified" Content="Modified" HorizontalAlignment="Left" Height="33" Margin="50,58,0,0" VerticalAlignment="Top" Width="180" Checked="Modified_Checked" Unchecked="Modified_Checked" Grid.ColumnSpan="3" Grid.Column="1"/>
-            <CheckBox IsChecked="True" Name="Added" Content="Added" HorizontalAlignment="Left" Height="33" Margin="63,58,0,0" VerticalAlignment="Top" Width="180" Checked="Added_Checked" Unchecked="Added_Checked" Grid.Column="3"/>
-            <CheckBox IsChecked="True" Name="Removed" Content="Removed" HorizontalAlignment="Left" Height="33" Margin="251,58,0,0" VerticalAlignment="Top" Width="180" Checked="Removed_Checked" Unchecked="Removed_Checked" Grid.Column="3"/>
-            <Label Content="Search" HorizontalAlignment="Left" Height="30" Margin="191,10,0,0" VerticalAlignment="Top" Width="52" Foreground="Gray" Grid.Column="3"/>
-            <TextBox Name="SearchTextBox" KeyUp="SearchById_KeyUp" HorizontalAlignment="Left" Height="30" Margin="251,10,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Grid.Column="3"/>
-            <Label Name="ResultLbl" Margin="15,10,255,233" Height="30" Grid.ColumnSpan="4" VerticalAlignment="Top"/>
+            <CheckBox IsChecked="True" Name="Modified" Content="Modified" HorizontalAlignment="Left" Height="33" Margin="184,58,0,0" VerticalAlignment="Top" Width="180" Checked="Modified_Checked" Unchecked="Modified_Checked"/>
+            <CheckBox IsChecked="True" Name="Added" Content="Added" HorizontalAlignment="Left" Height="33" Margin="405,58,0,0" VerticalAlignment="Top" Width="180" Checked="Added_Checked" Unchecked="Added_Checked"/>
+            <CheckBox IsChecked="True" Name="Removed" Content="Removed" HorizontalAlignment="Left" Height="33" Margin="590,58,0,0" VerticalAlignment="Top" Width="180" Checked="Removed_Checked" Unchecked="Removed_Checked"/>
+            <Label Content="Search" HorizontalAlignment="Left" Height="30" Margin="533,10,0,0" VerticalAlignment="Top" Width="52" Foreground="Gray"/>
+            <TextBox LostFocus="SearchTexBox_LostFocus" Name="SearchTextBox" KeyUp="SearchById_KeyUp" HorizontalAlignment="Left" Height="30" Margin="590,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+            <Label Name="ResultLbl" Margin="10,10,260,0" Height="30" VerticalAlignment="Top"/>
         </Grid>
 
     </Grid>
