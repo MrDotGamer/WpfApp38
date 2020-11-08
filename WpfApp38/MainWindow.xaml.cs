@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using WpfApp38.Models;
 using WpfApp38.ViewModel;
 
@@ -109,6 +110,28 @@ namespace WpfApp38
             if (SourceParametersList != null && TargetParametersList != null)
             {
                 DataGrid.ItemsSource = GetList(SourceParametersList, TargetParametersList);
+            }
+        }
+
+        void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            if (e.Row.Item is ParametersViewModel item)
+            {
+                switch (item.Status)
+                {
+                    case Const.Unchanged:
+                        e.Row.Background = new SolidColorBrush(Colors.Silver);
+                        break;
+                    case Const.Added:
+                        e.Row.Background = new SolidColorBrush(Colors.LimeGreen);
+                        break;
+                    case Const.Removed:
+                        e.Row.Background = new SolidColorBrush(Colors.Tomato);
+                        break;
+                    case Const.Modified:
+                        e.Row.Background = new SolidColorBrush(Color.FromRgb(255, 255, 94));// neradau Laser Lemon
+                        break;
+                }
             }
         }
 

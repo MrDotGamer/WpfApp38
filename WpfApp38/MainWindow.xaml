@@ -14,7 +14,7 @@
             <Label Name="TargetLbl" Margin="10,60,209,11"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="288" Margin="36,119,0,0" VerticalAlignment="Top" Width="780">
-            <DataGrid Name="DataGrid" HorizontalAlignment="Center" Height="172" Margin="0,96,0,0" VerticalAlignment="Top" Width="760"/>
+            <DataGrid LoadingRow="DataGrid_LoadingRow" Name="DataGrid" HorizontalAlignment="Center" Height="172" Margin="0,96,0,0" VerticalAlignment="Top" Width="760"/>
             <CheckBox IsChecked="True" Name="Unchanged" Content="Unchanged" HorizontalAlignment="Left" Height="33" Margin="15,58,0,0" VerticalAlignment="Top" Width="180" Checked="Unchanged_Checked" Unchecked="Unchanged_Checked"/>
             <CheckBox IsChecked="True" Name="Modified" Content="Modified" HorizontalAlignment="Left" Height="33" Margin="210,58,0,0" VerticalAlignment="Top" Width="180" Checked="Modified_Checked" Unchecked="Modified_Checked"/>
             <CheckBox IsChecked="True" Name="Added" Content="Added" HorizontalAlignment="Left" Height="33" Margin="402,58,0,0" VerticalAlignment="Top" Width="180" Checked="Added_Checked" Unchecked="Added_Checked"/>
