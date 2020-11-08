@@ -13,9 +13,11 @@ namespace WpfApp38
    
     public partial class MainWindow : Window
     {
+
+        List<Parametras> SourceParametersList;
+        List<Parametras> TargetParametersList;
         public MainWindow()
         {
-            
             InitializeComponent();
             List<Parametras> sourceParameters = new List<Parametras> {
                 new Parametras
@@ -76,8 +78,8 @@ namespace WpfApp38
             };
             if (openFileDialog.ShowDialog() == true)
             { 
-                        SourceLbl.Content = openFileDialog.FileName;
-                        OpenFile(openFileDialog.FileName);
+                 SourceLbl.Content = openFileDialog.FileName;
+                 SourceParametersList =  OpenFile(openFileDialog.FileName);
             }
         }
 
@@ -93,15 +95,14 @@ namespace WpfApp38
             if (openFileDialog.ShowDialog() == true)
             {
                 TargetLbl.Content = openFileDialog.FileName;
-                OpenFile(openFileDialog.FileName);
+                TargetParametersList = OpenFile(openFileDialog.FileName);
             }
 
         }
 
-        private void OpenFile(string path)
+        private List<Parametras> OpenFile(string path)
         {
-            
-
+            return Parametras.ReadParametersFromFile(path);
         }
     }
 }

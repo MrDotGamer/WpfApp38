@@ -20,5 +20,35 @@ namespace WpfApp38.Models
             }
             File.WriteAllText(path.ToString(), parameters.ToString());
         }
+        public static List<Parametras> ReadParametersFromFile(string path)
+        {
+            string temp = string.Empty;
+            List<Parametras> parameters = new List<Parametras>();
+            Parametras parametras = new Parametras();
+            using (StreamReader sr = new StreamReader(path))
+            {
+                while (sr.Peek() >= 0)
+                {
+                    char c = (char)sr.Read();
+                    if (c == ';')
+                    {
+                        parametras.Value = temp;
+                        temp = string.Empty;
+                        parameters.Add(parametras);
+                        parametras = new Parametras();
+                    }
+                    else if (c == ':')
+                    {
+                        parametras.Id = temp;
+                        temp = string.Empty;
+                    }
+                    else
+                    {
+                        temp += c;
+                    }
+                }
+            }
+            return parameters;
+        }
     }
 }
